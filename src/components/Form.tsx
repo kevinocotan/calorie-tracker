@@ -10,7 +10,7 @@ export default function Form() {
         calories: 0
     })
 
-    const handleChange = (e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement> ) => {
+    const handleChange = (e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>) => {
         const isNumberField = ['category', 'calories'].includes(e.target.id)
 
         setActivity({
@@ -20,19 +20,19 @@ export default function Form() {
     }
 
     const isValidActivity = () => {
-        const {name, calories} = activity
-        return name.trim() !== '' && calories > 0 
+        const { name, calories } = activity
+        return name.trim() !== '' && calories > 0
     }
 
-    
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        console.log('Submit');
+
     }
 
     return (
         <form className="space-y-5 bg-white shadow p-10 rounded-lg"
-        onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
         >
             <div className='grid grid-cols-1 gap-3'>
                 <label htmlFor="category" className="font-bold">Categoría</label>
