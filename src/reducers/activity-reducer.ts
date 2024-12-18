@@ -2,8 +2,8 @@ import { Activity } from "../types"
 
 export type ActivityActions =
     { type: 'save-activity', payload: { newActivity: Activity } } |
-    { type: 'set-activeId', payload: { id: Activity['id'] } }
-
+    { type: 'set-activeId', payload: { id: Activity['id'] } } |
+    { type: 'delete-activity', payload: { id: Activity['id'] } }
 
 export type ActivityState = {
     activities: Activity[],
@@ -20,7 +20,7 @@ export const activityReducer = (
     action: ActivityActions
 ) => {
     if (action.type === 'save-activity') {
-        
+
         let updateActivities: Activity[] = []
 
         if (state.activeId) {
@@ -33,7 +33,7 @@ export const activityReducer = (
         return {
             ...state,
             activities: updateActivities,
-            activeId : ''
+            activeId: ''
         }
     }
 
@@ -41,6 +41,13 @@ export const activityReducer = (
         return {
             ...state,
             activeId: action.payload.id
+        }
+    }
+
+    if (action.type === 'delete-activity') {
+        return {
+            ...state,
+            activities: state.activities.filter(activity => activity.id !== action.payload.id)
         }
     }
 
