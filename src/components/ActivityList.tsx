@@ -39,7 +39,7 @@ export default function ActivityList({ activities, dispatch }: ActivityListProps
                             <p className="font-black text-4xl text-lime-500">
                                 {activity.calories} {''}
                                 <span>
-                                    Calorias
+                                    Calorías
                                 </span>
                             </p>
                         </div>
