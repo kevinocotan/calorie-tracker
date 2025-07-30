@@ -13,7 +13,7 @@ function App() {
   }, [state.activities])
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const canRestartApp = () => useMemo (() => state.activities.length , [state.activities])
+  const canRestartApp = () => useMemo(() => state.activities.length, [state.activities])
 
   return (
     <>
@@ -44,9 +44,9 @@ function App() {
 
       <section className="bg-gray-800 py-10">
         <div className="max-w-4xl mx-auto">
-            <CalorieTracker
-              activities={state.activities}
-            />
+          <CalorieTracker
+            activities={state.activities}
+          />
         </div>
       </section>
 
